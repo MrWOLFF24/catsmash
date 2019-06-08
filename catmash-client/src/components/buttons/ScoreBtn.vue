@@ -10,6 +10,7 @@
 
 <script>
 export default {
+  name: "scorebtn",
   props: {
     nbVotes: {
       type: Number,
