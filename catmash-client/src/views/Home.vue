@@ -3,18 +3,8 @@
     <div class="hero-body">
       <div class="container has-text-centered">
         <nav class="level">
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">Tweets</p>
-              <img src="https://picsum.photos/200" alt>
-            </div>
-          </div>
-          <div class="level-item has-text-centered">
-            <div>
-              <p class="heading">Following</p>
-              <img src="https://picsum.photos/200" alt>
-            </div>
-          </div>
+          <cats-image :onClick="onCatSelected" :cat="catData"></cats-image>
+          <cats-image :onClick="onCatSelected" :cat="catData"></cats-image>
         </nav>
       </div>
     </div>
@@ -23,17 +13,25 @@
 </template>
 
 <script>
+import CatsImage from "@/components/home/CatsImage.vue";
 import ScoreBtn from "@/components/buttons/ScoreBtn.vue";
 
 export default {
   name: "home",
   components: {
+    CatsImage,
     ScoreBtn
   },
   data() {
     return {
+      catData: { id: 1, image: "https://picsum.photos/200" },
       nbVotes: 0
     };
+  },
+  methods: {
+    onCatSelected(value) {
+      console.log(value);
+    }
   }
 };
 </script>
