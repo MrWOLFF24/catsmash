@@ -1,7 +1,7 @@
 # catmash
 Simple Facebook's Facemash like app, to vote for the cutest cat ever!
 
-==================================
+
 Build a Complete NodeJS VUEJS app.
 ======================
 
@@ -13,7 +13,7 @@ This is a exercice to learn development with TDD approach.
   - create a mysql database named `facemash` with username = `root` & password = `""`
   - Run `yarn` or `npm install`
   - Run server: `cd catmash-server/ && adonis serve --dev`
-	- Run client: `cd catmash-client/ && npm run serve`
+  - Run client: `cd catmash-client/ && npm run serve`
   - Open http://localhost:8080 in your browser.
 
 Preview

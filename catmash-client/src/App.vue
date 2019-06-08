@@ -1,31 +1,96 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+    <nav-bar></nav-bar>
     <router-view/>
   </div>
 </template>
 
+<script>
+import NavBar from "@/components/navbar/NavBar.vue";
+
+export default {
+  name: "app",
+  components: {
+    NavBar
+  }
+};
+</script>
+
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+html,
+body,
+div,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+em,
+img,
+small,
+strong,
+ol,
+ul,
+li,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  box-sizing: border-box;
 }
-#nav {
-  padding: 30px;
+html {
+  font-family: "Noto Sans", sans-serif;
 }
-
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+ol,
+ul {
+  list-style: none;
 }
-
-#nav a.router-link-exact-active {
-  color: #42b983;
+.container {
+  height: calc(100vh - 105px);
+  display: flex;
+  justify-content: center;
+}
+.row {
+  width: 100%;
+  display: flex;
+}
+.column {
+  display: flex;
+  justify-content: center;
+  flex: 33.33%;
+  padding: 5px;
+}
+@media screen and (max-width: 500px) {
+  .column {
+    min-width: 100%;
+  }
 }
 </style>
