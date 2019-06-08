@@ -1,51 +1,39 @@
 <template>
-  <section class="home container">
-    <div class="row">
-      <div class="column">
-        <!-- <div class="media">
-          <img src="https://picsum.photos/200">
-        </div>-->
-      </div>
-      <div class="column">
-        <!-- <div class="media">
-          <img src="https://picsum.photos/200">
-        </div>-->
+  <section class="hero is-large">
+    <div class="hero-body">
+      <div class="container has-text-centered">
+        <nav class="level">
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Tweets</p>
+              <img src="https://picsum.photos/200" alt>
+            </div>
+          </div>
+          <div class="level-item has-text-centered">
+            <div>
+              <p class="heading">Following</p>
+              <img src="https://picsum.photos/200" alt>
+            </div>
+          </div>
+        </nav>
       </div>
     </div>
+    <score-btn :nbVotes="nbVotes"></score-btn>
   </section>
-  <!-- <svg viewBox="0 0 100 100" height="0" width="0">
-      <defs>
-        <clipPath id="clipper" clipPathUnits="objectBoundingBox">
-          <path
-            d="M.50,.90 L.20,.60
-           A.15,.15 0 0,1 .50,.30
-           A.15,.15 0 0,1 .80,.60 z"
-          ></path>
-        </clipPath>
-      </defs>
-    </svg>
-  <img alt="Vue logo" src="../assets/catsmash-logo.svg">-->
 </template>
 
 <script>
-// import HelloWorld from "@/components/HelloWorld.vue";
+import ScoreBtn from "@/components/buttons/ScoreBtn.vue";
 
 export default {
   name: "home",
-  components: {}
+  components: {
+    ScoreBtn
+  },
+  data() {
+    return {
+      nbVotes: 0
+    };
+  }
 };
 </script>
-
-<style scoped>
-.media {
-  min-width: 0;
-  margin: 5px;
-}
-img {
-  width: 450px;
-  max-width: 100%;
-  max-height: 450px;
-  /* -webkit-clip-path: url(#clipper);
-  clip-path: url(#clipper); */
-}
-</style>

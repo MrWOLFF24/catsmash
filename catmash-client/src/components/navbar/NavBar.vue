@@ -1,24 +1,31 @@
 <template>
-  <nav class="navbar" role="navigation">
+  <nav class="navbar-image" role="navigation">
     <ul>
-      <li>
-        <router-link to="/">
-          <img height="100px" src="../../assets/catsmash-logo.svg" alt="catmash cute cat">
-        </router-link>
-      </li>
+      <router-link to="/">
+        <li>
+          <img width="100%" src="../../assets/catsmash-logo.svg" alt="catmash cute cat">
+        </li>
+      </router-link>
     </ul>
   </nav>
 </template>
 
 <style scoped>
-.navbar ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
+.navbar-image {
+  width: 120px;
+  position: absolute;
+  z-index: 20;
+  top: 10px;
+  left: 50%;
+  transform: translateX(-50%);
 }
-.navbar ul li {
-  text-align: center;
+@media screen and (max-width: 640px) {
+  .navbar-image {
+    width: 100px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 </style>
 
