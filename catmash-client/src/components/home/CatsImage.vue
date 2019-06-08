@@ -20,3 +20,15 @@ export default {
   }
 };
 </script>
+
+<style scoped>
+img {
+  -webkit-clip-path: circle(50% at 50% 50%);
+  clip-path: circle(50% at 50% 50%);
+}
+@media screen and (max-width: 640px) {
+  .level-item:last-child {
+    margin-top: 50px;
+  }
+}
+</style>

@@ -5,7 +5,7 @@
     <!-- all others cats -->
     <all-others-cats :allOthersCats="allOthersCats"></all-others-cats>
     <!-- back navigation btn -->
-    <router-link class="button home-page" to="/">
+    <router-link class="button is-info is-outlined home-page" to="/">
       <span class="icon">
         <i>&#8592;</i>
       </span>
