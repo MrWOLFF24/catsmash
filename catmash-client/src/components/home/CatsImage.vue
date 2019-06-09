@@ -23,10 +23,10 @@ export default {
 
 <style scoped>
 img {
-  -webkit-clip-path: circle(50% at 50% 50%);
-  clip-path: circle(50% at 50% 50%);
+  border-radius: 50%;
+  border: 1rem solid #edf0f0;
 }
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 769px) {
   .level-item:last-child {
     margin-top: 50px;
   }
