@@ -19,6 +19,8 @@ const Route = use('Route')
 Route.group(() => {
 
   Route.get('/cats', 'CatController.getAllCats')
+  Route.get('/top', 'CatController.getTopCute')
+  Route.put('/battle', 'CatController.updateBattleResult');
 
 }).prefix('api/v1')
 

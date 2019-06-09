@@ -1,11 +1,22 @@
 'use strict'
 
+const Database = use('Database')
 const Cats = use('App/Models/Cat')
 
 class CatController {
   // get all cats
   async getAllCats() {
     return await Cats.all()
+  }
+
+  // get top 2 cats
+  async getTopCute() {
+    const top2Cats = await Database.from('cats').orderBy('ranking', 'desc').limit(2)
+    const othersCats = await Database.from('cats').whereNotIn('id', [top2Cats[0].id, top2Cats[1].id])
+    return await {
+      topTwoCats: top2Cats,
+      othersCats: othersCats
+    }
   }
 
   async updateBattleResult({ request }) {

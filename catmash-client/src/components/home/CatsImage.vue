@@ -1,7 +1,7 @@
 <template>
   <div class="level-item has-text-centered">
     <a @click="onClick(cat)">
-      <figure>
+      <figure class="round">
         <img height="200" width="200" :src="cat.image" alt="cute cat">
       </figure>
     </a>
@@ -24,7 +24,13 @@ export default {
 </script>
 
 <style scoped>
+.round {
+  height: 200px;
+  width: 200px;
+}
 img {
+  max-width: 100%;
+  max-height: 100%;
   border-radius: 50%;
   border: 1rem solid #edf0f0;
 }
