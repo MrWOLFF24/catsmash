@@ -30,9 +30,16 @@ export default {
       allOthersCats: []
     };
   },
-  created() {
-    this.$store.dispatch("getAllCats");
-    this.allOthersCats = this.$store.state.allCats;
+  methods: {
+    setCatsresult() {
+      const { othersCats, topTwoCats } = this.$store.state.top2AndOthers;
+      this.topTwoCats = topTwoCats;
+      this.allOthersCats = othersCats;
+    }
+  },
+  mounted() {
+    this.$store.dispatch("getTopCatsAndOthers");
+    this.setCatsresult();
   }
 };
 </script>
