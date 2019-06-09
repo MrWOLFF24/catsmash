@@ -31,14 +31,22 @@ export default {
   },
   methods: {
     onCatSelected(value) {
-      console.log(value);
+      const battleResult = {};
+      this.catData.map(cat => {
+        if (_.isEqual(value, cat)) {
+          battleResult.winner = cat;
+        } else {
+          battleResult.loser = cat;
+        }
+      });
+      this.$store.dispatch("updateCatsAfterBattle", battleResult);
       this.randomCatImage();
       this.nbVotes += 1;
     },
     randomCatImage() {
-      const image = this.$store.state.allCats;
-      const randomCat = _.shuffle(image);
-      this.catData = randomCat;
+      const randomCat = _.shuffle(this.$store.state.allCats);
+      const firstTwoRandomCat = randomCat.slice(0, 2).map(cat => cat);
+      this.catData = firstTwoRandomCat;
     }
   },
   created() {

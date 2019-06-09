@@ -1,9 +1,9 @@
 <template>
   <div class="scoreboard">
     <!-- top 5 cats -->
-    <top-two-cats :toptwoCats="topTwoCats"></top-two-cats>
+    <top-two-cats :top-two-cats="topTwoCats"></top-two-cats>
     <!-- all others cats -->
-    <all-others-cats :allOthersCats="allOthersCats"></all-others-cats>
+    <all-others-cats :all-others-cats="allOthersCats"></all-others-cats>
     <!-- back navigation btn -->
     <router-link class="button is-info is-outlined home-page" to="/">
       <span class="icon">
@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import TopTwoCats from "@/components/scoreboard/TopTwoCats.vue";
 import AllOthersCats from "@/components/scoreboard/AllOthersCats.vue";
 
@@ -24,22 +25,12 @@ export default {
     TopTwoCats,
     AllOthersCats
   },
-  data() {
-    return {
-      topTwoCats: [],
-      allOthersCats: []
-    };
-  },
-  methods: {
-    setCatsresult() {
-      const { othersCats, topTwoCats } = this.$store.state.top2AndOthers;
-      this.topTwoCats = topTwoCats;
-      this.allOthersCats = othersCats;
-    }
-  },
-  mounted() {
+  computed: mapState({
+    topTwoCats: state => state.top2AndOthers.topTwoCats,
+    allOthersCats: state => state.top2AndOthers.othersCats
+  }),
+  created() {
     this.$store.dispatch("getTopCatsAndOthers");
-    this.setCatsresult();
   }
 };
 </script>

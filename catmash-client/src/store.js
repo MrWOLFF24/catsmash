@@ -7,7 +7,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     allCats: '' || JSON.parse(localStorage.getItem('cats-data')),
-    top2AndOthers: '' || JSON.parse(localStorage.getItem('top-cats-data'))
+    top2AndOthers: []
   },
   mutations: {
     CATS_DATA(state, cats) {
@@ -20,16 +20,21 @@ export default new Vuex.Store({
   actions: {
     async getAllCats({ commit }) {
       const response = await axios.get("/cats");
-      const { data } = await response;
+      const { data } = response;
       localStorage.setItem('cats-data', JSON.stringify(data));
       await commit('CATS_DATA', data);
     },
 
+    async updateCatsAfterBattle({ commit }, battleResult) {
+      const response = await axios.put("/battle", battleResult);
+      const { data } = response;
+      console.log(data.message);
+    },
+
     async getTopCatsAndOthers({ commit }) {
       const response = await axios.get("/top");
-      const { data } = await response;
-      localStorage.setItem('top-cats-data', JSON.stringify(data));
-      commit('TOP2_OTHERS', data);
+      const { data } = response;
+      await commit('TOP2_OTHERS', data);
     }
   }
 })
