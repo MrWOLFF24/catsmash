@@ -1,7 +1,9 @@
 <template>
   <div class="level-item has-text-centered">
-    <a @click="onClick(cat.id)">
-      <img :src="cat.image" alt="cute cat">
+    <a @click="onClick(cat)">
+      <figure>
+        <img height="200" width="200" :src="cat.image" alt="cute cat">
+      </figure>
     </a>
   </div>
 </template>

@@ -25,20 +25,25 @@ export default {
   },
   data() {
     return {
-      catData: [
-        { id: 1, ranking: 1, image: "https://picsum.photos/200" },
-        { id: 2, ranking: 2, image: "https://picsum.photos/200" }
-      ],
+      catData: [],
       nbVotes: 0
     };
   },
   methods: {
     onCatSelected(value) {
       console.log(value);
-      this.catData[0].image = "https://picsum.photos/200/200/?random";
-      this.catData[1].image = "https://picsum.photos/200/200/?random";
+      this.randomCatImage();
       this.nbVotes += 1;
+    },
+    randomCatImage() {
+      const image = this.$store.state.allCats;
+      const randomCat = _.shuffle(image);
+      this.catData = randomCat;
     }
+  },
+  created() {
+    this.$store.dispatch("getAllCats");
+    this.randomCatImage();
   }
 };
 </script>

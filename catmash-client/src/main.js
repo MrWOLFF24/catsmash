@@ -6,7 +6,8 @@ import router from './router'
 import store from './store'
 
 Vue.config.productionTip = false
-axios.defaults.baseURL = 'http://localhost:3333';
+axios.defaults.headers.common['x-api-key'] = 'df8fffd8-6fd7-41ad-8512-f7c70c33c2a0'
+axios.defaults.baseURL = 'http://localhost:3333/api/v1';
 Vue.prototype._ = _
 
 new Vue({
