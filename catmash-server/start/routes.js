@@ -16,6 +16,13 @@
 /** @type {typeof import('@adonisjs/framework/src/Route/Manager')} */
 const Route = use('Route')
 
-Route.get('/', () => {
-  return { greeting: 'Hello world in JSON' }
+Route.group(() => {
+
+  Route.get('/cats', 'CatController.getAllCats')
+
+}).prefix('api/v1')
+
+// handle route not found 404 error with message
+Route.any('*', async ({ response }) => {
+  return response.status(404).json({error: 'Not Found'})
 })
