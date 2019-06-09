@@ -18,7 +18,7 @@ This is a exercice to learn development with TDD approach.
 
 Preview
 ========
-![Screenshot](/catmash-client/src/assets/screenshots/screenshot.png)
+![Screenshot](/catmash-client/src/assets/screenshots/catmash-screenshot.png)
 
 See [https://vuejs.org/guide/](https://vuejs.org/v2/guide/) and [https://adonisjs.com/docs/](https://adonisjs.com/docs/4.1/installation) for more information.
 
